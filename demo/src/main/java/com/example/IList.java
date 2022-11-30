@@ -1,3 +1,5 @@
+package com.example;
+
 import java.util.Iterator;
 
 public interface IList <T> extends Iterable<T> {
