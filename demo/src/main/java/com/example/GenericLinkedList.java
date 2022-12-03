@@ -117,8 +117,12 @@ public class GenericLinkedList<T> implements IList<T> {
     }
 
     @Override
-    public boolean contains(T element) {
-        // TODO Auto-generated method stub
+    public boolean contains(T elem) {
+        Node<T> n = head;
+        while(n != null) {
+            if(n.get() == elem) return true;
+            n = n.nextNode;
+        }
         return false;
     }
 
