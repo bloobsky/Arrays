@@ -90,8 +90,25 @@ public class GenericLinkedList<T> implements IList<T> {
 
     @Override
     public boolean remove(T elem) {
-        // TODO Auto-generated method stub
-        return false;
+       Node<T> n = head;
+       if(n.get() == elem) {
+        head = n.nextNode;
+        arraySize--;
+        return true;
+       }
+
+       while(n.nextNode != null) {
+        if(n.nextNode.get() == elem) {
+            n.nextNode = n.nextNode.nextNode;
+            if (n.nextNode == null) tail = n;
+            arraySize--;
+            return true;
+        }
+        n = n.nextNode;
+       }
+
+       return false;
+
     }
 
     @Override
