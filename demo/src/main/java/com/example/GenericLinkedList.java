@@ -9,18 +9,48 @@ public class GenericLinkedList<T> implements IList<T> {
 
     @Override
     public void add(T elem) {
-        // TODO Auto-generated method stub
+       Node newNode = new Node(elem);
+
+       if (head == null) {
+        head = newNode;
+        tail = newNode;
+        arraySize++;
+       } 
+       else addEnd(newNode);
         
     }
 
     @Override
-    public void add(int index, T element) {
-        // TODO Auto-generated method stub
+    public void add(int index, T elem) throws IndexOutOfBoundsException {
+        Node n = head;
+        Node newNode = new Node(elem);
+        boolean throwException = true;
+
+        if (index == 0) {
+            newNode.nextNode = head;
+            head = newNode;
+            return;
+        }
+
+        int i = 0;
+
+        while(n != null) {
+            if (i == index - 1) {
+                newNode.nextNode = n.nextNode;
+                n.nextNode = newNode;
+                throwException = false;
+            }
+            n = n.nextNode;
+            i++
+        }
+        if (throwException) throw new IndexOutOfBoundsException("ERROR: Index of out range");
+
+        arraySize++;
         
     }
 
     @Override
-    public T set(int index, T element) {
+    public T set(int index, T elem) {
         // TODO Auto-generated method stub
         return null;
     }

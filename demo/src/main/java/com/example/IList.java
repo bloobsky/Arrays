@@ -13,14 +13,14 @@ public interface IList <T> extends Iterable<T> {
      * @param index index at which the specified element is to be inserted
      * @param element element to be inserted
      */
-    public void add(int index, T element) ;//throws an IndexOutOfBounds exception where appropriate
+    public void add(int index, T elem) ;//throws an IndexOutOfBounds exception where appropriate
     /**
      * Replaces the element at the specified position in this list with the specified element
      * @param index index of the element to replace
      * @param element element to be stored at the specified position
      * @return the element previously at the specified position
      */
-    public T set(int index, T element);//throws an IndexOutOfBounds exception where appropriate
+    public T set(int index, T elem);//throws an IndexOutOfBounds exception where appropriate
     /**
      * Returns the element at the specified position in this list.
      * @param index index of the element to return
@@ -53,7 +53,7 @@ public interface IList <T> extends Iterable<T> {
      * @param element the element to search found
      * @return whether the element was found or not
      */
-    public boolean contains(T element);
+    public boolean contains(T elem);
     /**
      * Returns an iterator over the elements in this list in proper sequence.
      * Specified by:
