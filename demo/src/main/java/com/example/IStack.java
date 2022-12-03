@@ -3,9 +3,9 @@ public interface IStack<T> {
     /**
      * Pushes an item onto the top of this stack
      *
-     * @param element the element argument.
+     * @param elem the element argument.
      */
-    public void push(T element);
+    public void push(T elem);
 
 
     /**
