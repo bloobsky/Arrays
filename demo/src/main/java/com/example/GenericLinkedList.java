@@ -152,8 +152,24 @@ public class GenericLinkedList<T> implements IList<T> {
 
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        return null;
+        return new GenericLinkedListIterator();
+    }
+
+    class GenericLinkedListIterator implements Iterator<T> {
+        Node pointer = head;
+
+        @Override
+        public boolean hasNext() {
+            return pointer != null;
+        }
+
+        @Override
+        public T next() {
+            if(!hasNext()) throw new NoSuchElementException();
+            Node tempNode = pointer;
+            pointer = tempNode.nextNode;
+            return (T) tempNode.get();
+        }
     }
 
     public void addFirst(T val) {
