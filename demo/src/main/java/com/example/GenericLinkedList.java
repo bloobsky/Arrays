@@ -51,8 +51,28 @@ public class GenericLinkedList<T> implements IList<T> {
 
     @Override
     public T set(int index, T elem) {
-        // TODO Auto-generated method stub
-        return null;
+        Node n = head;
+        Node newNode = new Node(elem);
+
+        if(index == 0) {
+            Node oldNode = head;
+            newNode.nextNode = head.nextNode;
+            head = newNode;
+            return (T) oldNode.get();
+        }
+
+        int i = 0;
+        while(n != null) {
+            if(i == index -1 ) {
+                Node oldNode = n.nextNode;
+                newNode.nextNode = oldNode.nextNode;
+                n.nextNode = newNode;
+                return (T) oldNode.get();
+            }
+            n = n.nextNode;
+            i++;
+        }
+        throw new IndexOutOfBoundsException("ERROR: Index out of range.");
     }
 
     @Override
