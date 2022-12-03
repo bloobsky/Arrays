@@ -113,8 +113,7 @@ public class GenericLinkedList<T> implements IList<T> {
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
+        return head == null;
     }
 
     @Override
