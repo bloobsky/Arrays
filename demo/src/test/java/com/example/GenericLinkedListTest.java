@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class GenericLinkedListTest {
     
     //setup config
-    GenericArrayList<String> gList;
+    GenericLinkedList<String> gList;
 
     @BeforeEach
     void setup() {
-        gList = new GenericArrayList<>();
+        gList = new GenericLinkedList<>();
     }
 
     
