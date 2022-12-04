@@ -2,7 +2,6 @@ package com.example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -101,4 +100,42 @@ public class GenericArrayListTest {
         assertEquals(true, gList.contains("C"));
     }
 
+    @Test
+    //add 1 element but check for second one
+    void contains_add1Elem_Check2nd() {
+        gList.add("1st Element");
+
+        assertEquals(false, gList.contains("2nd Element"));
+    }
+
+    @Test
+    // remove 1 entry from 2 added and check if removed correctly
+    void remove_2added_1removed () {
+        gList.add("Keep");
+        gList.add("Remove");
+
+       // assertEquals(2, gList.size());
+        assertEquals("Keep", gList.get(0));
+        assertEquals(true, gList.remove("Remove"));
+
+    }
+
+    @Test
+    //check if array is empty
+    void checkIfEmpty() {
+        assertEquals(true, gList.isEmpty());
+    }
+
+    @Test
+    //iterator test
+    void iterator_add_checkReturn () {
+        gList.add("Check");
+        gList.add("Return");
+
+        int j = 0;
+        for (String elem : gList) {
+            assertEquals(gList.get(j), elem);
+            j++;
+        }
+    }
 }
